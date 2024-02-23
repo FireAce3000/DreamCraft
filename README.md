@@ -2,19 +2,21 @@
 something for my future...
 
 
-## git
+## github
 https://git-scm.com/download/win
+
 git commands:
 ```bash
 git add --all
 ```
 ```bash
-git commit -m "first go and TS files"
+git commit -m "NAME"
 ```
 
 
 ## Backend
 written in golang
+
 https://go.dev/
 
 Create Mod.go
@@ -30,6 +32,7 @@ go run Backend.go
 
 ## Frontend
 written in Typescript
+
 https://www.typescriptlang.org/docs/handbook/intro.html
 
 ```bash
