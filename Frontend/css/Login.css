@@ -1,0 +1,25 @@
+body {
+  background-image: url('../images/Polarlight_green.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+  /* background-color: darkgreen; */
+}
+
+h1 {
+  margin-left: 25pt;
+  margin-top: 25pt;
+}
+
+table {
+  margin-top: 25pt;
+  margin-left: 25pt;
+}
+
+td {
+  width: 100pt;
+}
+
+label {
+    text-shadow: 2pt;
+}

@@ -16,19 +16,40 @@
     <script src="../ts/Login.ts"></script>
   </head>
   <body>
-    <h1 class="text-success">DreamCraft</h1>
+    <h1 id="DreamCraft" class="text-success">DreamCraft</h1>
     <form action="Login">
-      <div>Name</div>
-      <input type="Name" placeholder="Name" />
-      <div>Password</div>
-      <input
-        type="password"
-        name="passord"
-        id="password"
-        placeholder="Password"
-      />
-      <br />
-      <button class="btn btn-success">Login</button>
+      <table>
+        <div>
+          <tr>
+            <td>
+              <label for="name" id="lblName" class="text-success">Name:</label>
+            </td>
+            <td>
+              <input type="name" name="name" id="name" placeholder="Name" />
+            </td>
+          </tr>
+        </div>
+        <div>
+          <tr>
+            <td>
+              <label for="password" class="text-success" id="lblPassword">Password:</label>
+            </td>
+            <td>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Password"
+              />
+            </td>
+          </tr>
+        </div>
+        <td></td>
+        <td>
+          <input type="submit" value="Login" class="btn btn-success" />
+          <input type="reset" value="Reset" class="btn btn-success" />
+        </td>
+      </table>
     </form>
   </body>
 </html>
