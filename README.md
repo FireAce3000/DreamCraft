@@ -26,9 +26,7 @@ written in golang
 
 https://go.dev/
 
-```bash
-![ServerConsoleScreen](/images/DreamCraft_Server.png)
-```
+![ServerConsoleScreen](/Frontend/images/DreamCraft_Server.png)
 
 Server
 
@@ -54,9 +52,7 @@ written in Typescript
 
 https://www.typescriptlang.org/docs/handbook/intro.html
 
-```bash
-![LoginScreen](/images/DreamCraft_LoginScreen.png)
-```
+![LoginScreen](/Frontend/images/DreamCraft_LoginScreen.png)
 
 Client (Port for VSCode LiveServer)
 
