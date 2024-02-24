@@ -1,9 +1,8 @@
 body {
-  background-image: url('../images/Polarlight_green.jpg');
+  background-image: url("../images/Polarlight_green.jpg");
   background-repeat: no-repeat;
-  background-attachment: fixed;  
+  background-attachment: fixed;
   background-size: cover;
-  /* background-color: darkgreen; */
 }
 
 h1 {
@@ -21,5 +20,5 @@ td {
 }
 
 label {
-    text-shadow: 2pt;
+  text-shadow: 2pt;
 }
