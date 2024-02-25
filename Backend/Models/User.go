@@ -1,6 +1,6 @@
 package Models
 
-// Klasse with 3 Properties
+// Klasse with 3 fields
 type User struct {
 	Id       int
 	Name     string

@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Fügen Sie hier Ihre anderen Funktionen hinzu.
 });
 
+// Test alert for Login.html button
 function showMyAlert(): void {
   var userName = document.getElementById("name") as HTMLInputElement;
   var userPassword = document.getElementById("password") as HTMLInputElement;
@@ -11,22 +12,28 @@ function showMyAlert(): void {
   alert("Login as " + userName.value + " with Password " + userPassword.value);
 }
 
+// Check input and send a JSON to Server
 function CheckInput(): void {
   var userName = document.getElementById("name") as HTMLInputElement;
   var userPassword = document.getElementById("password") as HTMLInputElement;
 
-  if (userName.value === "" || userPassword.value === "") {
-    alert("FALSE! Username or password is empty");
+  if (userName.value === "" && userPassword.value === "") {
+    alert("FALSE! Name and Password is empty");
+  } else if (userName.value === "" || userPassword.value === "") {
+    alert("FALSE! Name or Password is empty");
   } else {
     sendDataToGolang();
   }
 }
 
+// Send JSON to Server
 async function sendDataToGolang() {
   try {
+    // Create var for the JSON
     var userName = document.getElementById("name") as HTMLInputElement;
     var userPassword = document.getElementById("password") as HTMLInputElement;
 
+    // Connent to Server
     await fetch("http://localhost:8080/", {
       method: "POST",
       headers: {
@@ -36,7 +43,6 @@ async function sendDataToGolang() {
         userName: userName.value,
         userPassword: userPassword.value,
       }),
-      // body: JSON.stringify({ userName: "value", userPassword: "value" })
     });
   } catch (error) {
     console.error("ERROR (typescript): ", error);

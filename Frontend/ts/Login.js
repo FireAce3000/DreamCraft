@@ -39,21 +39,27 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("DOM fully loaded and parsed");
     // Fügen Sie hier Ihre anderen Funktionen hinzu.
 });
+// Test alert for Login.html button
 function showMyAlert() {
     var userName = document.getElementById("name");
     var userPassword = document.getElementById("password");
     alert("Login as " + userName.value + " with Password " + userPassword.value);
 }
+// Check input and send a JSON to Server
 function CheckInput() {
     var userName = document.getElementById("name");
     var userPassword = document.getElementById("password");
-    if (userName.value === "" || userPassword.value === "") {
-        alert("Username or password is empty");
+    if (userName.value === "" && userPassword.value === "") {
+        alert("FALSE! Name and Password is empty");
+    }
+    else if (userName.value === "" || userPassword.value === "") {
+        alert("FALSE! Name or Password is empty");
     }
     else {
         sendDataToGolang();
     }
 }
+// Send JSON to Server
 function sendDataToGolang() {
     return __awaiter(this, void 0, void 0, function () {
         var userName, userPassword, error_1;
@@ -63,6 +69,7 @@ function sendDataToGolang() {
                     _a.trys.push([0, 2, , 3]);
                     userName = document.getElementById("name");
                     userPassword = document.getElementById("password");
+                    // Connent to Server
                     return [4 /*yield*/, fetch("http://localhost:8080/", {
                             method: "POST",
                             headers: {
@@ -72,9 +79,9 @@ function sendDataToGolang() {
                                 userName: userName.value,
                                 userPassword: userPassword.value,
                             }),
-                            // body: JSON.stringify({ userName: "value", userPassword: "value" })
                         })];
                 case 1:
+                    // Connent to Server
                     _a.sent();
                     return [3 /*break*/, 3];
                 case 2:
