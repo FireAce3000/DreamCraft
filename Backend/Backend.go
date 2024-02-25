@@ -51,7 +51,7 @@ func handleRequest(w http.ResponseWriter, r *http.Request) {
 
 	// Output
 	for _, user := range users {
-		fmt.Printf("ID: %d, Name: %s, Hash: %x\n", user.Id, user.Name, user.Hash)
+		fmt.Printf("ID: %d, Name: %s, Hash: %s\n", user.Id, user.Name, user.Hash)
 	}
 
 	// Server output
