@@ -1,6 +1,5 @@
 # DreamCraft
 
-something for my future...
 The password is hashed with a random salt and stored in a slice
 
 
@@ -20,45 +19,6 @@ git commit -m "NAME"
 
 ```bash
 git push
-```
-
-
-## Backend
-
-written in golang
-
-https://go.dev/
-
-![ServerConsoleScreen](/Frontend/images/DreamCraft_Server.png)
-
-Server
-
-```bash
-http://localhost:8080/
-```
-
-Create Mod.go
-
-```bash
-go mod init DreamCraft
-```
-
-Start backend
-
-```bash
-go run Backend.go
-```
-
-
-## API
-
-JSON:
-
-```bash
-{
-  "userName": "PostmanUser",
-  "userPassword": "PostmanPW"
-}
 ```
 
 
@@ -97,3 +57,45 @@ Login.ts to Login.js (for html page)
 ```bash
 tsc ts/Login.ts
 ```
+
+
+## API
+
+JSON:
+
+```bash
+{
+  "userName": "PostmanUser",
+  "userPassword": "PostmanPW"
+}
+```
+
+
+## Backend
+
+written in golang
+
+https://go.dev/
+
+![ServerConsoleScreen](/Frontend/images/DreamCraft_Server.png)
+
+Server
+
+```bash
+http://localhost:8080/
+```
+
+Create Mod.go
+
+```bash
+go mod init DreamCraft
+```
+
+Start backend
+
+```bash
+go run Backend.go
+```
+
+
+
