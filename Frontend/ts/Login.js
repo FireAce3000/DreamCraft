@@ -44,6 +44,16 @@ function showMyAlert() {
     var userPassword = document.getElementById("password");
     alert("Login as " + userName.value + " with Password " + userPassword.value);
 }
+function CheckInput() {
+    var userName = document.getElementById("name");
+    var userPassword = document.getElementById("password");
+    if (userName.value === "" || userPassword.value === "") {
+        alert("Username or password is empty");
+    }
+    else {
+        sendDataToGolang();
+    }
+}
 function sendDataToGolang() {
     return __awaiter(this, void 0, void 0, function () {
         var userName, userPassword, error_1;
@@ -58,7 +68,10 @@ function sendDataToGolang() {
                             headers: {
                                 "Content-Type": "application/json",
                             },
-                            body: JSON.stringify({ userName: userName.value, userPassword: userPassword.value })
+                            body: JSON.stringify({
+                                userName: userName.value,
+                                userPassword: userPassword.value,
+                            }),
                             // body: JSON.stringify({ userName: "value", userPassword: "value" })
                         })];
                 case 1:

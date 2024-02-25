@@ -11,6 +11,17 @@ function showMyAlert(): void {
   alert("Login as " + userName.value + " with Password " + userPassword.value);
 }
 
+function CheckInput(): void {
+  var userName = document.getElementById("name") as HTMLInputElement;
+  var userPassword = document.getElementById("password") as HTMLInputElement;
+
+  if (userName.value === "" || userPassword.value === "") {
+    alert("FALSE! Username or password is empty");
+  } else {
+    sendDataToGolang();
+  }
+}
+
 async function sendDataToGolang() {
   try {
     var userName = document.getElementById("name") as HTMLInputElement;

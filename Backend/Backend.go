@@ -1,6 +1,7 @@
 package main
 
 import (
+	"DreamCraft/Services"
 	"encoding/json"
 	"fmt"
 	"net/http"
@@ -25,6 +26,8 @@ func handleRequest(w http.ResponseWriter, r *http.Request) {
 		UserName     string `json:"userName"`
 		UserPassword string `json:"userPassword"`
 	}
+
+	// JSON write in body object with error
 	err := json.NewDecoder(r.Body).Decode(&body)
 	if err != nil {
 		http.Error(w, "ERROR (golang): "+err.Error(), http.StatusBadRequest)
@@ -34,20 +37,33 @@ func handleRequest(w http.ResponseWriter, r *http.Request) {
 	// Close body at the end
 	defer r.Body.Close()
 
+	// Add user
+	Services.Create(body.UserName, body.UserPassword)
+
+	// Read all
+	users := Services.Read()
+
 	// Console output
 	fmt.Println("--- LOGIN ---")
-	fmt.Println("Name:", body.UserName, "| Password:", body.UserPassword)
+
+	fmt.Println("New User: Name:", body.UserName, "| Password:", body.UserPassword)
+
+	// Output
+	for _, user := range users {
+		fmt.Printf("ID: %d, Name: %s, Password: %s\n", user.Id, user.Name, user.Password)
+	}
 
 	// Server output
-	fmt.Fprintln(w, "Golang-Server:")
-	fmt.Fprintln(w, "> JSON:", body)
+	// fmt.Fprintln(w, "Golang-Server:")
+	// fmt.Fprintln(w, "> JSON:", body)
 }
 
 func main() {
+	// Display the Server, when online
 	fmt.Println("")
 	fmt.Println("--- DreamCraft Server ---")
 	fmt.Println("> url: http://localhost:8080/")
-	fmt.Println("v 0.0.1")
+	fmt.Println("> v 0.0.1")
 	fmt.Println("")
 
 	http.HandleFunc("/", handleRequest)
