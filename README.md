@@ -3,11 +3,11 @@
 The password is hashed with a random salt and stored in a slice
 
 
-## github
+## Github
 
 https://git-scm.com/download/win
 
-git commands:
+Git commands:
 
 ```bash
 git add --all
@@ -24,9 +24,7 @@ git push
 
 ## Frontend
 
-written in Typescript
-
-https://www.typescriptlang.org/docs/handbook/intro.html
+written in Typescript (https://www.typescriptlang.org/docs/handbook/intro.html)
 
 ![LoginScreen](/Frontend/images/DreamCraft_LoginScreen.png)
 
@@ -73,9 +71,7 @@ JSON:
 
 ## Backend
 
-written in golang
-
-https://go.dev/
+written in golang (https://go.dev/)
 
 ![ServerConsoleScreen](/Frontend/images/DreamCraft_Server.png)
 
@@ -85,7 +81,7 @@ Server
 http://localhost:8080/
 ```
 
-Create Mod.go
+Create mod.go
 
 ```bash
 go mod init DreamCraft
