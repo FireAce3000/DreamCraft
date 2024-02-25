@@ -1,6 +1,7 @@
 package main
 
 import (
+	"DreamCraft/Models"
 	"DreamCraft/Services"
 	"encoding/json"
 	"fmt"
@@ -41,7 +42,7 @@ func handleRequest(w http.ResponseWriter, r *http.Request) {
 	Services.Create(body.UserName, body.UserPassword)
 
 	// Read all
-	users := Services.Read()
+	var users []Models.User= Services.Read()
 
 	// Console output
 	fmt.Println("--- LOGIN ---")
@@ -50,7 +51,7 @@ func handleRequest(w http.ResponseWriter, r *http.Request) {
 
 	// Output
 	for _, user := range users {
-		fmt.Printf("ID: %d, Name: %s, Password: %s\n", user.Id, user.Name, user.Password)
+		fmt.Printf("ID: %d, Name: %s, Hash: %x\n", user.Id, user.Name, user.Hash)
 	}
 
 	// Server output
