@@ -1,6 +1,8 @@
 # DreamCraft
 
 something for my future...
+The password is hashed with a random salt and stored in a slice
+
 
 ## github
 
@@ -19,6 +21,7 @@ git commit -m "NAME"
 ```bash
 git push
 ```
+
 
 ## Backend
 
@@ -45,6 +48,19 @@ Start backend
 ```bash
 go run Backend.go
 ```
+
+
+## API
+
+JSON:
+
+```bash
+{
+  "userName": "PostmanUser",
+  "userPassword": "PostmanPW"
+}
+```
+
 
 ## Frontend
 
