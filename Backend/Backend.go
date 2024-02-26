@@ -24,6 +24,7 @@ func handleRequest(w http.ResponseWriter, r *http.Request) {
 
 	// Decode JSON body at the end
 	var body struct {
+		Action		 string `json:"action"`
 		UserName     string `json:"userName"`
 		UserPassword string `json:"userPassword"`
 	}
@@ -39,20 +40,45 @@ func handleRequest(w http.ResponseWriter, r *http.Request) {
 	defer r.Body.Close()
 
 	// Add user
-	Services.Create(body.UserName, body.UserPassword)
+	if(body.Action == "regist"){
+		Services.Create(body.UserName, body.UserPassword)
+	}
+
+	// Create output when User is logged in
+	var log string = ""
+	if(body.Action == "login"){
+		log, _ = Services.LoginCheck(body.UserName, body.UserPassword)
+	}
 
 	// Read all
 	var users []Models.User= Services.Read()
 
 	// Console output
-	fmt.Println("--- LOGIN ---")
+	
 
-	fmt.Println("New User: Name:", body.UserName, "| Password:", body.UserPassword)
+	// Regist output
+	if body.Action == "regist" {
+		fmt.Println("--- REGIST ---")
+		fmt.Println("Regist as Name:", body.UserName, "| Password:", body.UserPassword)
 
-	// Output
+	}
+
+	// Login output
+	if body.Action == "login" {
+		fmt.Println("--- LOGIN ---")
+		fmt.Println("Login as Name:", body.UserName, "| Password:", body.UserPassword)
+		fmt.Printf("%s\n", log)
+	}
+
+	fmt.Println()
+
+	// Slice Output
+	fmt.Println("Slice:")
 	for _, user := range users {
 		fmt.Printf("ID: %d, Name: %s, Hash: %s\n", user.Id, user.Name, user.Hash)
 	}
+
+	fmt.Println()
 
 	// Server output
 	// fmt.Fprintln(w, "Golang-Server:")

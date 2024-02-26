@@ -13,7 +13,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     function verb(n) { return function (v) { return step([n, v]); }; }
     function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
-        while (g && (g = 0, op[0] && (_ = 0)), _) try {
+        while (_) try {
             if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
             if (y = 0, t) op = [op[0] & 2, t.value];
             switch (op[0]) {
@@ -35,61 +35,100 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 document.addEventListener("DOMContentLoaded", function () {
-    // Hier ist der Code, der ausgeführt werden soll, wenn die Seite vollständig geladen ist.
+    // Code that should be executed when the page is fully loaded.
     console.log("DOM fully loaded and parsed");
-    // Fügen Sie hier Ihre anderen Funktionen hinzu.
 });
-// Test alert for Login.html button
-function showMyAlert() {
+// Alert for Login.html button
+function ShowMyAlert() {
     var userName = document.getElementById("name");
     var userPassword = document.getElementById("password");
     alert("Login as " + userName.value + " with Password " + userPassword.value);
 }
-// Check input and send a JSON to Server
-function CheckInput() {
-    var userName = document.getElementById("name");
-    var userPassword = document.getElementById("password");
-    if (userName.value === "" && userPassword.value === "") {
-        alert("FALSE! Name and Password is empty");
-    }
-    else if (userName.value === "" || userPassword.value === "") {
-        alert("FALSE! Name or Password is empty");
-    }
-    else {
-        sendDataToGolang();
-    }
-}
 // Send JSON to Server
-function sendDataToGolang() {
+function SendDataToGolang() {
     return __awaiter(this, void 0, void 0, function () {
         var userName, userPassword, error_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    _a.trys.push([0, 2, , 3]);
                     userName = document.getElementById("name");
                     userPassword = document.getElementById("password");
+                    if (userName.value === "" && userPassword.value === "") {
+                        alert("FALSE! Name and Password is empty");
+                    }
+                    else if (userName.value === "" || userPassword.value === "") {
+                        alert("FALSE! Name or Password is empty");
+                    }
+                    _a.label = 1;
+                case 1:
+                    _a.trys.push([1, 3, , 4]);
                     // Connent to Server
                     return [4 /*yield*/, fetch("http://localhost:8080/", {
                             method: "POST",
                             headers: {
-                                "Content-Type": "application/json",
+                                "Content-Type": "application/json"
                             },
                             body: JSON.stringify({
+                                action: "regist",
                                 userName: userName.value,
-                                userPassword: userPassword.value,
-                            }),
+                                userPassword: userPassword.value
+                            })
                         })];
-                case 1:
+                case 2:
                     // Connent to Server
                     _a.sent();
-                    return [3 /*break*/, 3];
-                case 2:
+                    return [3 /*break*/, 4];
+                case 3:
                     error_1 = _a.sent();
                     console.error("ERROR (typescript): ", error_1);
                     alert("Error (typescript): ");
-                    return [3 /*break*/, 3];
-                case 3: return [2 /*return*/];
+                    return [3 /*break*/, 4];
+                case 4: return [2 /*return*/];
+            }
+        });
+    });
+}
+function ToDreamCraft() {
+    return __awaiter(this, void 0, void 0, function () {
+        var userName, userPassword, error_2;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    userName = document.getElementById("name");
+                    userPassword = document.getElementById("password");
+                    if (userName.value === "" && userPassword.value === "") {
+                        alert("FALSE! Name and Password is empty");
+                    }
+                    else if (userName.value === "" || userPassword.value === "") {
+                        alert("FALSE! Name or Password is empty");
+                    }
+                    _a.label = 1;
+                case 1:
+                    _a.trys.push([1, 3, , 4]);
+                    // Connent to Server
+                    return [4 /*yield*/, fetch("http://localhost:8080/", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({
+                                action: "login",
+                                userName: userName.value,
+                                userPassword: userPassword.value
+                            })
+                        })];
+                case 2:
+                    // Connent to Server
+                    _a.sent();
+                    return [3 /*break*/, 4];
+                case 3:
+                    error_2 = _a.sent();
+                    console.error("ERROR (typescript): ", error_2);
+                    alert("Error (typescript): ");
+                    return [3 /*break*/, 4];
+                case 4:
+                    alert("Goto DreamCraft");
+                    return [2 /*return*/];
             }
         });
     });

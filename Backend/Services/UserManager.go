@@ -76,3 +76,21 @@ func hashPassword(password string, salt []byte) (string, error) {
 
     return hashedPassword, nil
 }
+
+func LoginCheck(name string, password string) (string, error) {
+	var regSalt []byte
+	var regHash string
+
+	for _, user := range userSlice {
+		if user.Name == name {
+			regSalt = user.Salt
+			regHash = user.Hash
+		}
+	}
+	newhash,_ := hashPassword(password, regSalt)
+
+	if newhash == regHash {
+		return "Login: OK", nil
+	}
+	return "Login: FALSE", nil
+}
