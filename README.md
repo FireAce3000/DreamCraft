@@ -1,5 +1,8 @@
 # DreamCraft 
 
+To regist and login in DreamCraft!
+
+Info:
 The password is hashed with a random salt and stored in a slice
 
 
