@@ -1,0 +1,13 @@
+/* Background picture */
+body {
+    background-image: url("../images/Polarlight_green.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+  
+  /* Headline */
+  h1 {
+    margin-left: 25pt;
+    margin-top: 25pt;
+  }
