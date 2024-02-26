@@ -8,12 +8,17 @@ body {
 
 /* Headline */
 h1 {
-  margin-left: 25pt;
-  margin-top: 25pt;
+  margin-left: 10pt;
+  margin-top: 10pt;
 }
 
 table {
-  margin-top: 25pt;
-  margin-left: 25pt;
+  margin-top: 10pt;
+  margin-left: 10pt;
 }
 
+.button-container {
+  display: flex;
+  justify-content: space-around;
+  width: 20%;
+}

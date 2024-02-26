@@ -24,7 +24,7 @@ func handleRequest(w http.ResponseWriter, r *http.Request) {
 
 	// Decode JSON body at the end
 	var body struct {
-		Action		 string `json:"action"`
+		Action       string `json:"action"`
 		UserName     string `json:"userName"`
 		UserPassword string `json:"userPassword"`
 	}
@@ -38,11 +38,11 @@ func handleRequest(w http.ResponseWriter, r *http.Request) {
 
 	// Close body at the end
 	defer r.Body.Close()
-	
+
 	// Create output when user is regist
 	var checkReg bool
 
-	if(body.Action == "regist"){
+	if body.Action == "regist" {
 		checkReg = Services.RegCheck(body.UserName)
 		if checkReg {
 			Services.Create(body.UserName, body.UserPassword)
@@ -50,13 +50,14 @@ func handleRequest(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Create output when user is logged in
-	var log string = ""
-	if(body.Action == "login"){
-		log = Services.LoginCheck(body.UserName, body.UserPassword)
+	var checkLog bool
+
+	if body.Action == "login" {
+		checkLog = Services.LoginCheck(body.UserName, body.UserPassword)
 	}
 
 	// Read all
-	var users []Models.User= Services.Read()
+	var users []Models.User = Services.Read()
 
 	// ------------------------------------------- CONSOLE OUTPUT:	-------------------------------------------
 
@@ -75,8 +76,13 @@ func handleRequest(w http.ResponseWriter, r *http.Request) {
 	// Login output
 	if body.Action == "login" {
 		fmt.Println("--- LOGIN ---")
-		fmt.Println("Login as Name:", body.UserName, "| Password:", body.UserPassword)
-		fmt.Printf("%s\n", log)
+		if checkLog {
+			fmt.Printf("Login: OK")
+			fmt.Println("Login as Name:", body.UserName, "| Password:", body.UserPassword)
+		} else {
+			fmt.Printf("Login: FALSE")
+			fmt.Println("Name:", body.UserName, "| Password:", body.UserPassword)
+		}
 	}
 
 	fmt.Println()

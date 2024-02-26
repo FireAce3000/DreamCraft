@@ -80,7 +80,7 @@ func hashPassword(password string, salt []byte) (string) {
 }
 
 // Check login datas
-func LoginCheck(name string, password string) (string) {
+func LoginCheck(name string, password string) (bool) {
 	var regSalt []byte
 	var regHash string
 
@@ -93,9 +93,9 @@ func LoginCheck(name string, password string) (string) {
 	newhash := hashPassword(password, regSalt)
 
 	if newhash == regHash {
-		return "Login: OK"
+		return true
 	}
-	return "Login: FALSE"
+	return false
 }
 
 func RegCheck (name string) (bool) {
