@@ -3,6 +3,7 @@
 To regist and login in DreamCraft!
 
 Info:
+
 The password is hashed with a random salt and stored in a slice
 
 
@@ -27,7 +28,7 @@ git push
 
 ## Frontend
 
-written in Typescript (https://www.typescriptlang.org/docs/handbook/intro.html)
+written in html with Typescript (https://www.typescriptlang.org/docs/handbook/intro.html)
 
 ![LoginScreen](/Frontend/images/DreamCraft_LoginScreen.png)
 
