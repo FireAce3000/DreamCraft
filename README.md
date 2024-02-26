@@ -1,4 +1,4 @@
-# DreamCraft
+# DreamCraft test
 
 The password is hashed with a random salt and stored in a slice
 
