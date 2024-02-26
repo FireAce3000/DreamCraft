@@ -12,7 +12,7 @@ function ShowMyAlert(): void {
 }
 
 // Send JSON to Server
-async function SendDataToGolang() {
+async function RegistToDreamCraft() {
   var userName = document.getElementById("name") as HTMLInputElement;
   var userPassword = document.getElementById("password") as HTMLInputElement;
 
@@ -40,7 +40,7 @@ async function SendDataToGolang() {
   }
 }
 
-async function ToDreamCraft() {
+async function LoginToDreamCraft() {
 
   var userName = document.getElementById("name") as HTMLInputElement;
   var userPassword = document.getElementById("password") as HTMLInputElement;

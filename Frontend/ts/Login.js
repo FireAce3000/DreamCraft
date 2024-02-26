@@ -45,7 +45,7 @@ function ShowMyAlert() {
     alert("Login as " + userName.value + " with Password " + userPassword.value);
 }
 // Send JSON to Server
-function SendDataToGolang() {
+function RegistToDreamCraft() {
     return __awaiter(this, void 0, void 0, function () {
         var userName, userPassword, error_1;
         return __generator(this, function (_a) {
@@ -88,7 +88,7 @@ function SendDataToGolang() {
         });
     });
 }
-function ToDreamCraft() {
+function LoginToDreamCraft() {
     return __awaiter(this, void 0, void 0, function () {
         var userName, userPassword, error_2;
         return __generator(this, function (_a) {

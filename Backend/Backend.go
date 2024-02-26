@@ -53,8 +53,7 @@ func handleRequest(w http.ResponseWriter, r *http.Request) {
 	// Read all
 	var users []Models.User= Services.Read()
 
-	// Console output
-	
+	// ------------------------------------------- CONSOLE OUTPUT:	-------------------------------------------
 
 	// Regist output
 	if body.Action == "regist" {
@@ -80,7 +79,7 @@ func handleRequest(w http.ResponseWriter, r *http.Request) {
 
 	fmt.Println()
 
-	// Server output
+	// ------------------------------------------- Server output -------------------------------------------
 	// fmt.Fprintln(w, "Golang-Server:")
 	// fmt.Fprintln(w, "> JSON:", body)
 }

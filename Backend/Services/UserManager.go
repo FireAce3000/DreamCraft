@@ -8,6 +8,7 @@ import (
 	"fmt"
 )
 
+// Create private userSlice for UserManager
 var userSlice []Models.User
 
 // CRUD
@@ -44,6 +45,7 @@ func Read() []Models.User {
 	return userSlice
 }
 
+// Create a rnd salt with "crypto/rand"
 func CreateSalt() ([]byte, error) {
 	// Salt lenght
     var saltLength int = 32
@@ -63,7 +65,7 @@ func CreateSalt() ([]byte, error) {
 	return salt, nil
 }
 
-// Hashen from password and salt
+// Hashen from password and salt with "crypto/sha256"
 func hashPassword(password string, salt []byte) (string, error) {
     // Password + salt
     var saltedPassword []byte = append([]byte(password), salt...)
@@ -77,6 +79,7 @@ func hashPassword(password string, salt []byte) (string, error) {
     return hashedPassword, nil
 }
 
+// Check login datas
 func LoginCheck(name string, password string) (string, error) {
 	var regSalt []byte
 	var regHash string
