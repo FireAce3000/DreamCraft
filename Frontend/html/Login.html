@@ -3,10 +3,10 @@
   <head>
     <!-- Registcard icon -->
     <link rel="icon" href="../images/Nordlichter_Icon.png">
-    
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DreamCraft</title>
+    <title>DreamCraft: Login</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
@@ -19,7 +19,6 @@
   </head>
   <body>
     <h1 id="DreamCraft" class="text-success">DreamCraft</h1>
-    <form action="">
       <table>
         <div>
           <tr>
@@ -53,7 +52,6 @@
         </div>
         <tr>
           <!-- Buttons -->
-          <td></td>
           <td>
             <input
               type="submit"
@@ -66,16 +64,18 @@
               value="Regist"
               class="btn btn-success"
               onclick="RegistToDreamCraft()"
-            />
-            <input
-              type="submit"
-              value="Login"
-              class="btn btn-success"
-              onclick="LoginToDreamCraft()"
-            />
+            />    
+          </td>
+          <td>
+            <form action="DreamCraft.html" method="get">
+              <input
+                type="submit"
+                value="Login"
+                class="btn btn-success"
+                onclick="LoginToDreamCraft()"
+            /></form>
           </td>
         </tr>
       </table>
-    </form>
   </body>
 </html>

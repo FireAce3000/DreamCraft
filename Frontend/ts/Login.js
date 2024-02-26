@@ -126,9 +126,7 @@ function LoginToDreamCraft() {
                     console.error("ERROR (typescript): ", error_2);
                     alert("Error (typescript): ");
                     return [3 /*break*/, 4];
-                case 4:
-                    alert("Goto DreamCraft");
-                    return [2 /*return*/];
+                case 4: return [2 /*return*/];
             }
         });
     });

@@ -69,5 +69,7 @@ async function LoginToDreamCraft() {
     alert("Error (typescript): ");
   }
 
-  alert("Goto DreamCraft")
+  // to DreamCraft.html
+  // window.location.href = "DreamCraft.html";
 }
+
