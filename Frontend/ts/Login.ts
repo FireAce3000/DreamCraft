@@ -20,23 +20,24 @@ async function RegistToDreamCraft() {
     alert("FALSE! Name and Password is empty");
   } else if (userName.value === "" || userPassword.value === "") {
     alert("FALSE! Name or Password is empty");
-  }
-  try {
-    // Connent to Server
-    await fetch("http://localhost:8080/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        action: "regist",
-        userName: userName.value,
-        userPassword: userPassword.value,
-      }),
-    });
-  } catch (error) {
-    console.error("ERROR (typescript): ", error);
-    alert("Error (typescript): ");
+  } else {
+    try {
+      // Connent to Server
+      await fetch("http://localhost:8080/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          action: "regist",
+          userName: userName.value,
+          userPassword: userPassword.value,
+        }),
+      });
+    } catch (error) {
+      console.error("ERROR (typescript): ", error);
+      alert("Error (typescript): ");
+    }
   }
 }
 

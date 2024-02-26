@@ -31,7 +31,7 @@ func Create(name string, password string) {
 	salt, _ := CreateSalt()
 
 	// Hash SHA-265
-	hash, _ := hashPassword(password, salt)
+	hash := hashPassword(password, salt)
 
 	// Add newUser
 	newUser := Models.NewUser(id, name, password, salt, hash)
@@ -66,7 +66,7 @@ func CreateSalt() ([]byte, error) {
 }
 
 // Hashen from password and salt with "crypto/sha256"
-func hashPassword(password string, salt []byte) (string, error) {
+func hashPassword(password string, salt []byte) (string) {
     // Password + salt
     var saltedPassword []byte = append([]byte(password), salt...)
 
@@ -76,11 +76,11 @@ func hashPassword(password string, salt []byte) (string, error) {
     // Konvertiere den Hash in eine hexadezimale Zeichenkette
     hashedPassword := hex.EncodeToString(hash[:])
 
-    return hashedPassword, nil
+    return hashedPassword
 }
 
 // Check login datas
-func LoginCheck(name string, password string) (string, error) {
+func LoginCheck(name string, password string) (string) {
 	var regSalt []byte
 	var regHash string
 
@@ -90,10 +90,19 @@ func LoginCheck(name string, password string) (string, error) {
 			regHash = user.Hash
 		}
 	}
-	newhash,_ := hashPassword(password, regSalt)
+	newhash := hashPassword(password, regSalt)
 
 	if newhash == regHash {
-		return "Login: OK", nil
+		return "Login: OK"
 	}
-	return "Login: FALSE", nil
+	return "Login: FALSE"
+}
+
+func RegCheck (name string) (bool) {
+	for _, user := range userSlice {
+		if user.Name == name {
+			return false
+		}
+	}
+	return true
 }

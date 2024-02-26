@@ -38,16 +38,21 @@ func handleRequest(w http.ResponseWriter, r *http.Request) {
 
 	// Close body at the end
 	defer r.Body.Close()
+	
+	// Create output when user is regist
+	var checkReg bool
 
-	// Add user
 	if(body.Action == "regist"){
-		Services.Create(body.UserName, body.UserPassword)
+		checkReg = Services.RegCheck(body.UserName)
+		if checkReg {
+			Services.Create(body.UserName, body.UserPassword)
+		}
 	}
 
-	// Create output when User is logged in
+	// Create output when user is logged in
 	var log string = ""
 	if(body.Action == "login"){
-		log, _ = Services.LoginCheck(body.UserName, body.UserPassword)
+		log = Services.LoginCheck(body.UserName, body.UserPassword)
 	}
 
 	// Read all
@@ -58,8 +63,13 @@ func handleRequest(w http.ResponseWriter, r *http.Request) {
 	// Regist output
 	if body.Action == "regist" {
 		fmt.Println("--- REGIST ---")
-		fmt.Println("Regist as Name:", body.UserName, "| Password:", body.UserPassword)
-
+		if checkReg {
+			fmt.Println("Regist: OK")
+			fmt.Println("Regist as Name:", body.UserName, "| Password:", body.UserPassword)
+		} else {
+			fmt.Println("Regist: FALSE")
+			fmt.Println("Name:", body.UserName, "| Password:", body.UserPassword)
+		}
 	}
 
 	// Login output

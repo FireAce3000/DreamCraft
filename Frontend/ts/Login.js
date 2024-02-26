@@ -53,15 +53,15 @@ function RegistToDreamCraft() {
                 case 0:
                     userName = document.getElementById("name");
                     userPassword = document.getElementById("password");
-                    if (userName.value === "" && userPassword.value === "") {
-                        alert("FALSE! Name and Password is empty");
-                    }
-                    else if (userName.value === "" || userPassword.value === "") {
-                        alert("FALSE! Name or Password is empty");
-                    }
-                    _a.label = 1;
+                    if (!(userName.value === "" && userPassword.value === "")) return [3 /*break*/, 1];
+                    alert("FALSE! Name and Password is empty");
+                    return [3 /*break*/, 5];
                 case 1:
-                    _a.trys.push([1, 3, , 4]);
+                    if (!(userName.value === "" || userPassword.value === "")) return [3 /*break*/, 2];
+                    alert("FALSE! Name or Password is empty");
+                    return [3 /*break*/, 5];
+                case 2:
+                    _a.trys.push([2, 4, , 5]);
                     // Connent to Server
                     return [4 /*yield*/, fetch("http://localhost:8080/", {
                             method: "POST",
@@ -74,16 +74,16 @@ function RegistToDreamCraft() {
                                 userPassword: userPassword.value
                             })
                         })];
-                case 2:
+                case 3:
                     // Connent to Server
                     _a.sent();
-                    return [3 /*break*/, 4];
-                case 3:
+                    return [3 /*break*/, 5];
+                case 4:
                     error_1 = _a.sent();
                     console.error("ERROR (typescript): ", error_1);
                     alert("Error (typescript): ");
-                    return [3 /*break*/, 4];
-                case 4: return [2 /*return*/];
+                    return [3 /*break*/, 5];
+                case 5: return [2 /*return*/];
             }
         });
     });
