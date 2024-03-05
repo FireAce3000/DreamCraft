@@ -22,8 +22,8 @@ async function RegistToDreamCraft() {
     alert("FALSE! Name or Password is empty");
   } else {
     try {
-      // Connent to Server
-      await fetch("http://localhost:8080/", {
+      // Connect to Server
+      const response = await fetch("http://localhost:8080/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -34,6 +34,14 @@ async function RegistToDreamCraft() {
           userPassword: userPassword.value,
         }),
       });
+      
+      // Ensure that the response is OK
+      if (!response.ok) {
+        throw new Error('Failed to register');
+      }
+      
+      // Handle the response here if needed
+      
     } catch (error) {
       console.error("ERROR (typescript): ", error);
       alert("Error (typescript): ");
@@ -42,7 +50,6 @@ async function RegistToDreamCraft() {
 }
 
 async function LoginToDreamCraft() {
-
   var userName = document.getElementById("name") as HTMLInputElement;
   var userPassword = document.getElementById("password") as HTMLInputElement;
 
@@ -51,9 +58,10 @@ async function LoginToDreamCraft() {
   } else if (userName.value === "" || userPassword.value === "") {
     alert("FALSE! Name or Password is empty");
   }
+  
   try {
-    // Connent to Server
-    await fetch("http://localhost:8080/", {
+    // Connect to Server
+    const response = await fetch("http://localhost:8080/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -64,12 +72,16 @@ async function LoginToDreamCraft() {
         userPassword: userPassword.value,
       }),
     });
+    
+    // Ensure that the response is OK
+    if (!response.ok) {
+      throw new Error('Failed to login');
+    }
+    
+    // Handle the response here if needed
+    
   } catch (error) {
     console.error("ERROR (typescript): ", error);
     alert("Error (typescript): ");
   }
-
-  // to DreamCraft.html
-  // window.location.href = "DreamCraft.html";
 }
-

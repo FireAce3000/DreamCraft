@@ -25,6 +25,15 @@ git commit -m "NAME"
 git push
 ```
 
+go mod:
+
+```bash
+go mod init Backend.go
+```
+
+```bash
+go mod tidy
+```
 
 ## Frontend
 

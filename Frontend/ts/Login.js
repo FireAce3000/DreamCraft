@@ -13,7 +13,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     function verb(n) { return function (v) { return step([n, v]); }; }
     function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
+        while (g && (g = 0, op[0] && (_ = 0)), _) try {
             if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
             if (y = 0, t) op = [op[0] & 2, t.value];
             switch (op[0]) {
@@ -47,7 +47,7 @@ function ShowMyAlert() {
 // Send JSON to Server
 function RegistToDreamCraft() {
     return __awaiter(this, void 0, void 0, function () {
-        var userName, userPassword, error_1;
+        var userName, userPassword, response, error_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -62,21 +62,23 @@ function RegistToDreamCraft() {
                     return [3 /*break*/, 5];
                 case 2:
                     _a.trys.push([2, 4, , 5]);
-                    // Connent to Server
                     return [4 /*yield*/, fetch("http://localhost:8080/", {
                             method: "POST",
                             headers: {
-                                "Content-Type": "application/json"
+                                "Content-Type": "application/json",
                             },
                             body: JSON.stringify({
                                 action: "regist",
                                 userName: userName.value,
-                                userPassword: userPassword.value
-                            })
+                                userPassword: userPassword.value,
+                            }),
                         })];
                 case 3:
-                    // Connent to Server
-                    _a.sent();
+                    response = _a.sent();
+                    // Ensure that the response is OK
+                    if (!response.ok) {
+                        throw new Error('Failed to register');
+                    }
                     return [3 /*break*/, 5];
                 case 4:
                     error_1 = _a.sent();
@@ -90,7 +92,7 @@ function RegistToDreamCraft() {
 }
 function LoginToDreamCraft() {
     return __awaiter(this, void 0, void 0, function () {
-        var userName, userPassword, error_2;
+        var userName, userPassword, response, error_2;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -105,21 +107,23 @@ function LoginToDreamCraft() {
                     _a.label = 1;
                 case 1:
                     _a.trys.push([1, 3, , 4]);
-                    // Connent to Server
                     return [4 /*yield*/, fetch("http://localhost:8080/", {
                             method: "POST",
                             headers: {
-                                "Content-Type": "application/json"
+                                "Content-Type": "application/json",
                             },
                             body: JSON.stringify({
                                 action: "login",
                                 userName: userName.value,
-                                userPassword: userPassword.value
-                            })
+                                userPassword: userPassword.value,
+                            }),
                         })];
                 case 2:
-                    // Connent to Server
-                    _a.sent();
+                    response = _a.sent();
+                    // Ensure that the response is OK
+                    if (!response.ok) {
+                        throw new Error('Failed to login');
+                    }
                     return [3 /*break*/, 4];
                 case 3:
                     error_2 = _a.sent();
