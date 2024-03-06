@@ -1,13 +1,23 @@
 /* Background picture */
 body {
-    background-image: url("../images/Polarlight_green.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-  }
-  
-  /* Headline */
-  h1 {
-    margin-left: 10pt;
-    margin-top: 10pt;
-  }
+  background-color: #404040;
+  /* background-image: url("../images/Polarlight_green.jpg"); */
+  margin-left: 5pt;
+  margin-top: 10pt;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+/* Headline */
+header {
+  display: block;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+nav {
+  display: block;
+  font-weight: bold;
+}
