@@ -25,15 +25,6 @@ git commit -m "NAME"
 git push
 ```
 
-go mod:
-
-```bash
-go mod init Backend.go
-```
-
-```bash
-go mod tidy
-```
 
 ## Frontend
 
@@ -96,8 +87,14 @@ http://localhost:8080/
 
 Create mod.go
 
+go mod:
+
 ```bash
-go mod init DreamCraft
+go mod init Backend.go
+```
+
+```bash
+go mod tidy
 ```
 
 Start backend
