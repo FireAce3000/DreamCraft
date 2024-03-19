@@ -1,7 +1,7 @@
 package Services
 
 import (
-	"DreamCraft/Models"
+	"Backend/Models"
 	"crypto/rand"
     "crypto/sha256"
     "encoding/hex"

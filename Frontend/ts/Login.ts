@@ -23,7 +23,7 @@ async function RegistToDreamCraft() {
   } else {
     try {
       // Connect to Server
-      const response = await fetch("http://localhost:8080/", {
+      const response = await fetch("http://localhost:8080/dreamcraft", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -43,8 +43,8 @@ async function RegistToDreamCraft() {
       // Handle the response here if needed
       
     } catch (error) {
-      console.error("ERROR (typescript): ", error);
-      alert("Error (typescript): ");
+      console.error("ERROR (typescript): " + error);
+      alert("ERROR (typescript): " + error);
     }
   }
 }
@@ -61,7 +61,7 @@ async function LoginToDreamCraft() {
   
   try {
     // Connect to Server
-    const response = await fetch("http://localhost:8080/", {
+    const response = await fetch("http://localhost:8080/dreamcraft", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -81,7 +81,7 @@ async function LoginToDreamCraft() {
     // Handle the response here if needed
     
   } catch (error) {
-    console.error("ERROR (typescript): ", error);
-    alert("Error (typescript): ");
+    console.error("ERROR (typescript): " + error);
+    alert("ERROR (typescript): " + error);
   }
 }

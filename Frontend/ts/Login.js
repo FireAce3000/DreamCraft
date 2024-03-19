@@ -62,7 +62,7 @@ function RegistToDreamCraft() {
                     return [3 /*break*/, 5];
                 case 2:
                     _a.trys.push([2, 4, , 5]);
-                    return [4 /*yield*/, fetch("http://localhost:8080/", {
+                    return [4 /*yield*/, fetch("http://localhost:8080/dreamcraft", {
                             method: "POST",
                             headers: {
                                 "Content-Type": "application/json",
@@ -82,8 +82,8 @@ function RegistToDreamCraft() {
                     return [3 /*break*/, 5];
                 case 4:
                     error_1 = _a.sent();
-                    console.error("ERROR (typescript): ", error_1);
-                    alert("Error (typescript): ");
+                    console.error("ERROR (typescript): " + error_1);
+                    alert("ERROR (typescript): " + error_1);
                     return [3 /*break*/, 5];
                 case 5: return [2 /*return*/];
             }
@@ -107,7 +107,7 @@ function LoginToDreamCraft() {
                     _a.label = 1;
                 case 1:
                     _a.trys.push([1, 3, , 4]);
-                    return [4 /*yield*/, fetch("http://localhost:8080/", {
+                    return [4 /*yield*/, fetch("http://localhost:8080/dreamcraft", {
                             method: "POST",
                             headers: {
                                 "Content-Type": "application/json",
@@ -127,8 +127,8 @@ function LoginToDreamCraft() {
                     return [3 /*break*/, 4];
                 case 3:
                     error_2 = _a.sent();
-                    console.error("ERROR (typescript): ", error_2);
-                    alert("Error (typescript): ");
+                    console.error("ERROR (typescript): " + error_2);
+                    alert("ERROR (typescript): " + error_2);
                     return [3 /*break*/, 4];
                 case 4: return [2 /*return*/];
             }

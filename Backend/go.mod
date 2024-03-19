@@ -1,3 +1,3 @@
-module Backend.go
+module Backend
 
 go 1.21.6

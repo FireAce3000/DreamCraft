@@ -1,8 +1,8 @@
 package main
 
 import (
-	"DreamCraft/Models"
-	"DreamCraft/Services"
+	"Backend/Models"
+	"Backend/Services"
 	"encoding/json"
 	"fmt"
 	"net/http"
