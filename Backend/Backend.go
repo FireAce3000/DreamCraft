@@ -6,9 +6,10 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"time"
 )
 
-func dreamcraft(w http.ResponseWriter, r *http.Request) {
+func DreamCraft(w http.ResponseWriter, r *http.Request) {
 
 	// Allow access from all sources
 	w.Header().Set("Access-Control-Allow-Origin", "*")
@@ -37,7 +38,7 @@ func dreamcraft(w http.ResponseWriter, r *http.Request) {
 	// }
 
 	// Close body at the end
-	// defer r.Body.Close()
+	defer r.Body.Close()
 
 	// Create output when user is regist
 	var checkReg bool
@@ -59,6 +60,7 @@ func dreamcraft(w http.ResponseWriter, r *http.Request) {
 	// Read all
 	var users []Models.User = Services.Read()
 
+	var time = time.Now()
 	// ------------------------------------------- CONSOLE OUTPUT:	-------------------------------------------
 	// Regist output
 	if body.Action == "regist" {
@@ -96,18 +98,26 @@ func dreamcraft(w http.ResponseWriter, r *http.Request) {
 
 	// ------------------------------------------- Server output -------------------------------------------
 	fmt.Fprintf(w, "Golang-Server:\n")
-	fmt.Fprintf(w, " > JSON: Action: %v; Username: %v; Password: %v;\n", body.Action, body.UserName, body.UserPassword)
+	fmt.Fprintf(w, "Last Update: %d:%d:%d %d.%d.%d \n", time.Hour(), time.Minute(), time.Second(), time.Day(), time.Month(), time.Year())
+	// fmt.Fprintf(w, "> JSON: Action: %v; Username: %v; Password: %v;\n", body.Action, body.UserName, body.UserPassword)
+	for _, user := range users {
+		fmt.Fprintf(w, "ID: %d, Name: %s, Hash: %s\n", user.Id, user.Name, user.Hash)
+	}
 }
 
 func main() {
 	// Display the Server, when online
 	fmt.Println("")
-	fmt.Println("--- DreamCraft Server ---")
+
+	fmt.Println("        ______")
+	fmt.Println("       / /   /")
+	fmt.Println("      / /   /")
+	fmt.Println(" --- /_/___/ REAMCRAFT SERVER ---")
 	fmt.Println("> url: http://localhost:8080/dreamcraft")
 	fmt.Println("> v 0.0.1")
 	fmt.Println("")
 
-	http.HandleFunc("/dreamcraft", dreamcraft)
+	http.HandleFunc("/dreamcraft", DreamCraft)
 
 	http.ListenAndServe(":8080", nil)
 }

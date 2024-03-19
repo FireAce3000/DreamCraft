@@ -77,7 +77,7 @@ function RegistToDreamCraft() {
                     response = _a.sent();
                     // Ensure that the response is OK
                     if (!response.ok) {
-                        throw new Error('Failed to register');
+                        throw new Error("Failed to register");
                     }
                     return [3 /*break*/, 5];
                 case 4:
@@ -98,15 +98,15 @@ function LoginToDreamCraft() {
                 case 0:
                     userName = document.getElementById("name");
                     userPassword = document.getElementById("password");
-                    if (userName.value === "" && userPassword.value === "") {
-                        alert("FALSE! Name and Password is empty");
-                    }
-                    else if (userName.value === "" || userPassword.value === "") {
-                        alert("FALSE! Name or Password is empty");
-                    }
-                    _a.label = 1;
+                    if (!(userName.value === "" && userPassword.value === "")) return [3 /*break*/, 1];
+                    alert("FALSE! Name and Password is empty");
+                    return [3 /*break*/, 5];
                 case 1:
-                    _a.trys.push([1, 3, , 4]);
+                    if (!(userName.value === "" || userPassword.value === "")) return [3 /*break*/, 2];
+                    alert("FALSE! Name or Password is empty");
+                    return [3 /*break*/, 5];
+                case 2:
+                    _a.trys.push([2, 4, , 5]);
                     return [4 /*yield*/, fetch("http://localhost:8080/dreamcraft", {
                             method: "POST",
                             headers: {
@@ -118,19 +118,19 @@ function LoginToDreamCraft() {
                                 userPassword: userPassword.value,
                             }),
                         })];
-                case 2:
+                case 3:
                     response = _a.sent();
                     // Ensure that the response is OK
                     if (!response.ok) {
-                        throw new Error('Failed to login');
+                        throw new Error("Failed to login");
                     }
-                    return [3 /*break*/, 4];
-                case 3:
+                    return [3 /*break*/, 5];
+                case 4:
                     error_2 = _a.sent();
                     console.error("ERROR (typescript): " + error_2);
                     alert("ERROR (typescript): " + error_2);
-                    return [3 /*break*/, 4];
-                case 4: return [2 /*return*/];
+                    return [3 /*break*/, 5];
+                case 5: return [2 /*return*/];
             }
         });
     });

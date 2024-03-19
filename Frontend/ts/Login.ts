@@ -34,14 +34,13 @@ async function RegistToDreamCraft() {
           userPassword: userPassword.value,
         }),
       });
-      
+
       // Ensure that the response is OK
       if (!response.ok) {
-        throw new Error('Failed to register');
+        throw new Error("Failed to register");
       }
-      
+
       // Handle the response here if needed
-      
     } catch (error) {
       console.error("ERROR (typescript): " + error);
       alert("ERROR (typescript): " + error);
@@ -57,31 +56,30 @@ async function LoginToDreamCraft() {
     alert("FALSE! Name and Password is empty");
   } else if (userName.value === "" || userPassword.value === "") {
     alert("FALSE! Name or Password is empty");
-  }
-  
-  try {
-    // Connect to Server
-    const response = await fetch("http://localhost:8080/dreamcraft", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        action: "login",
-        userName: userName.value,
-        userPassword: userPassword.value,
-      }),
-    });
-    
-    // Ensure that the response is OK
-    if (!response.ok) {
-      throw new Error('Failed to login');
+  } else {
+    try {
+      // Connect to Server
+      const response = await fetch("http://localhost:8080/dreamcraft", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          action: "login",
+          userName: userName.value,
+          userPassword: userPassword.value,
+        }),
+      });
+
+      // Ensure that the response is OK
+      if (!response.ok) {
+        throw new Error("Failed to login");
+      }
+
+      // Handle the response here if needed
+    } catch (error) {
+      console.error("ERROR (typescript): " + error);
+      alert("ERROR (typescript): " + error);
     }
-    
-    // Handle the response here if needed
-    
-  } catch (error) {
-    console.error("ERROR (typescript): " + error);
-    alert("ERROR (typescript): " + error);
   }
 }
